@@ -1,6 +1,6 @@
 # Visual Studio Extension: Local LLM-Powered Coding Assistance Open Source
 
-# This version 2.0 is now opensource 
+# This version 2.0 is opensource 
 
 This Visual Studio extension is designed to enhance the coding experience by integrating locally hosted Large Language Models (LLMs) directly into the IDE. Developers gain access to powerful AI-driven coding assistance without compromising security or incurring additional costs.
 
