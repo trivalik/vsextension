@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="LocalCode.CodeWithLocalLLMControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+             Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
+             Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="400"
+             Name="MyToolWindow">
+    <Grid x:Name="responseControlsGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+                <ComboBox x:Name="cmbModels" Width="194" RenderTransformOrigin="0.5,0.5" ToolTip="Select Local model to ask question" >
+                    <ComboBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.605"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-0.528"/>
+                        </TransformGroup>
+                    </ComboBox.RenderTransform>
+                    <ComboBoxItem Visibility="Collapsed">Please Select Model</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+                <TextBox x:Name="QueryTextBox" Width="300" Text="Your question here!" KeyDown="QueryTextBox_KeyDownAsync" />
+                <Button x:Name="SubmitButton" Content="Submit" Width="75" Click="OnSubmitClickAsync"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <ScrollViewer x:Name="responseScrollViewer">
+                <StackPanel x:Name="responseStackPanel" CanVerticallyScroll="True">
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
